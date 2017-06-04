@@ -1,0 +1,20 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post" name="postman">
+    {{form.hidden_tag()}}
+    <p>
+        Please enter URL:<br>
+        {{form.url(size=80)}}<br>
+        {% for error in form.url.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br>
+    </p>
+    <p><input type="submit" value="Send"></p>
+</form>
+<br />
+<textarea rows="50" cols="100">{{result}}</textarea>
+
+{% endblock %}
