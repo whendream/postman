@@ -1,12 +1,22 @@
-__author__ = 'jun.wen'
+#coding=utf-8
+'''
+Created on 2017年6月5日
 
-from flask import Flask
+@author: jun.wen
+'''
+from flask import Flask,render_template
 from flask_bootstrap import Bootstrap
+from myform import ReqFormV1
 
-def create_app():
-  app = Flask(__name__)
-  Bootstrap(app)
-  return app
+app = Flask(__name__)
+app.config.from_object('config')
+Bootstrap(app)
 
-if __name__ =="__main__":
-    create_app().run(debug=True)
+@app.route("/")
+def index():
+    form = ReqFormV1()
+    return render_template("index.html",form = form)
+
+
+if __name__=="__main__":
+    app.run()
