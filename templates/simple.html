@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}wm-api-tools{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+
+            <form class="form" method="post">
+                {{wtf.form_field(form.action)}}
+                {{wtf.form_field(form.keyword)}}
+                {{wtf.form_field(form.submit)}}
+
+            </form>
+        </div>
+        <div class="col-md-6 column">
+            <h3>Result: </h3>
+            <textarea class="form-control text-body" rows="21">{{result}}</textarea>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
